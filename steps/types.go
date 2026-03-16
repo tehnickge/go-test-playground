@@ -29,6 +29,23 @@ func MakeTypes() {
 	user.ChangeName("Nikola Tesla")
 	fmt.Println(user.PrettiePrint())
 
+	// копирование структуры
+	copiedUser := user.CopyUser(user)
+
+	fmt.Printf(
+		"Original user: %s | struct addr: %p | Rank pointer: %p\n",
+		user.Name,
+		&user,
+		user.Rank,
+	)
+
+	fmt.Printf(
+		"Copied user: %s | struct addr: %p | Rank pointer: %p\n",
+		copiedUser.Name,
+		&copiedUser,
+		copiedUser.Rank,
+	)
+
 	fmt.Println("---------------")
 
 }

@@ -34,6 +34,19 @@ func (u *User) ChangeName(newName string) {
 	u.Name = newName
 }
 
+func (u User) CopyUser(otherUser User) User {
+	u.Name = otherUser.Name
+
+	if otherUser.Rank != nil {
+		newRank := *otherUser.Rank
+		u.Rank = &newRank
+	} else {
+		u.Rank = nil
+	}
+
+	return u
+}
+
 var Userino = struct {
 	Id   int
 	Name string
