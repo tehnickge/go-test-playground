@@ -1,42 +1,51 @@
 package main
 
 import (
-	"firstapp/constants"
+	"bufio"
 	"firstapp/steps"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
-	steps.MakeStrings()
-	steps.MakeFunctions()
-	steps.MakeTyepes()
+	scanner := bufio.NewScanner(os.Stdin)
+	for {
+		fmt.Println("Selected steps:")
+		fmt.Println("1. Strings")
+		fmt.Println("2. Functions")
+		fmt.Println("3. Types")
+		fmt.Println("4. Arrays and Slices")
+		fmt.Println("5. Maps")
+		fmt.Println("0. Exit")
+		fmt.Print("Enter the number of the step you want to see: ")
 
-	var testArray [5]int = [5]int{1, 2, 3, 4, 5}
-	var testArray1 []int = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 55}
-	var testArray2 []int = []int{229, 5543, 5435, 2342}
-	testArray1 = append(testArray1, testArray[:]...)
-	testArray1 = append(testArray1, testArray2...)
-	testArray2 = append(testArray2, append(testArray1, testArray[:]...)...)
-	fmt.Println(testArray[:])
-	fmt.Println(testArray1[:])
-	fmt.Println(testArray2[:])
-	fmt.Println("---------------")
+		scanner.Scan()
+		input := strings.TrimSpace(scanner.Text())
+		stepNumber, err := strconv.Atoi(input)
+		if err != nil {
+			fmt.Println("Invalid input, please enter a number")
+			continue
+		}
 
-	fmt.Println(constants.TestMap)
-	delete(constants.TestMap, "token")
-	fmt.Println(constants.TestMap)
-	fmt.Println("---------------")
-	fmt.Print("Enter a key to search: ")
-	var searchedString string
-	fmt.Scanf("%s", &searchedString)
-	res, found := constants.TestMap[searchedString]
-	if !found {
-		fmt.Println("key not found")
-	}
-	fmt.Println(res, found)
-	fmt.Println("---------------")
-
-	for key, value := range constants.TestMap {
-		fmt.Printf("%s: %d\n", key, value)
+		switch stepNumber {
+		case 1:
+			steps.MakeStrings()
+		case 2:
+			steps.MakeFunctions()
+		case 3:
+			steps.MakeTypes()
+		case 4:
+			steps.MakeArrayAndSlices()
+		case 5:
+			steps.MakeMaps()
+		case 0:
+			fmt.Println("Exiting...")
+			return
+		default:
+			fmt.Println("Invalid step number")
+		}
+		fmt.Println()
 	}
 }

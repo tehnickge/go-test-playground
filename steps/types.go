@@ -6,7 +6,7 @@ import (
 	"fmt"
 )
 
-func MakeTyepes() {
+func MakeTypes() {
 	fmt.Println("--------Types-------")
 	user := types.User{
 		Id:    1,

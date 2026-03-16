@@ -1,6 +1,9 @@
 package types
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 // Структура для представления пользователя
 type User struct {
