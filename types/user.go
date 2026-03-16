@@ -30,6 +30,10 @@ func (u *User) PrettiePrint() string {
 	return string(jsonData)
 }
 
+func (u *User) ChangeName(newName string) {
+	u.Name = newName
+}
+
 var Userino = struct {
 	Id   int
 	Name string

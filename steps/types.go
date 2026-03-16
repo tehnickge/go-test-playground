@@ -25,6 +25,10 @@ func MakeTypes() {
 	// проверка на админский ранг
 	fmt.Println("user is admin:", user.IsAdmin())
 
+	// изменение имени пользователя
+	user.ChangeName("Nikola Tesla")
+	fmt.Println(user.PrettiePrint())
+
 	fmt.Println("---------------")
 
 }
