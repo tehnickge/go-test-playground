@@ -1,8 +1,11 @@
 package main
 
 import (
+	"encoding/json"
+	"firstapp/constants"
+	"firstapp/lib"
+	"firstapp/types"
 	"fmt"
-	"math"
 )
 
 func main() {
@@ -11,36 +14,76 @@ func main() {
 		fmt.Println(str[i])
 	}
 
-	printRunes(str)
+	lib.PrintRunes(str)
 
-	fmt.Println(test(5, 3.9))
+	fmt.Println(lib.Test(5, 3.9))
 
-	fmt.Println(multyreturn())
-	el1 := multyreturn()
+	fmt.Println(lib.Multyreturn())
+	el1 := lib.Multyreturn()
 
 	fmt.Println(el1)
 
-	for _, v := range el1 { 
+	for _, v := range el1 {
 
 		fmt.Printf("%v ", v)
 	}
+	fmt.Println()
+	user, err := lib.GetUserRank()
 
-	
-
-}
-
-func printRunes(s string) {
-	for _, r := range s {
-		fmt.Printf("%c", r)
+	if err != nil {
+		fmt.Println((err))
+	} else {
+		fmt.Println(user)
 	}
 
+	data := types.User{
+		Id:    1,
+		Name:  "John Doe",
+		Email: "john.doe@example.com",
+		Rank:  lib.StringPtr("admin"),
+	}
+
+	jsonData, _ := json.MarshalIndent(data, "", "	")
+	fmt.Println(string(jsonData))
+
+	userino, errino := json.MarshalIndent(types.Userino, "", "	")
+
+	fmt.Println(string(userino), errino)
+
+	fmt.Println("---------------")
+	fmt.Println(constants.ArrayAny)
+
+	for _, v := range constants.ArrayAny {
+		fmt.Printf("%v ", v)
+	}
 	fmt.Println()
-}
 
-func test(a int, b float32) int {
-	return a + int(math.Round(float64(b)))
-}
+	var testArray [5]int = [5]int{1, 2, 3, 4, 5}
+	var testArray1 []int = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 55}
+	var testArray2 []int = []int{229, 5543, 5435, 2342}
+	testArray1 = append(testArray1, testArray[:]...)
+	testArray1 = append(testArray1, testArray2...)
+	testArray2 = append(testArray2, append(testArray1, testArray[:]...)...)
+	fmt.Println(testArray[:])
+	fmt.Println(testArray1[:])
+	fmt.Println(testArray2[:])
+	fmt.Println("---------------")
 
-func multyreturn() []interface{} {
-	return []interface{}{1, 2, "sex", "sexxxxxxxxxxxxxxxx", nil, nil}
+	fmt.Println(constants.TestMap)
+	delete(constants.TestMap, "token")
+	fmt.Println(constants.TestMap)
+	fmt.Println("---------------")
+	fmt.Print("Enter a key to search: ")
+	var searchedString string
+	fmt.Scanf("%s", &searchedString)
+	res, found := constants.TestMap[searchedString]
+	if !found {
+		fmt.Println("key not found")
+	}
+	fmt.Println(res, found)
+	fmt.Println("---------------")
+
+	for key, value := range constants.TestMap {
+		fmt.Printf("%s: %d\n", key, value)
+	}
 }
