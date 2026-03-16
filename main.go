@@ -18,6 +18,7 @@ func main() {
 		fmt.Println("3. Types")
 		fmt.Println("4. Arrays and Slices")
 		fmt.Println("5. Maps")
+		fmt.Println("6. Pointers")
 		fmt.Println("0. Exit")
 		fmt.Print("Enter the number of the step you want to see: ")
 
@@ -40,6 +41,8 @@ func main() {
 			steps.MakeArrayAndSlices()
 		case 5:
 			steps.MakeMaps()
+		case 6:
+			steps.MakePtrs()
 		case 0:
 			fmt.Println("Exiting...")
 			return
