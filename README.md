@@ -33,6 +33,7 @@
 - **Массивы и слайсы**: Создание, модификация, append операции
 - **Map**: Поиск, удаление, итерация
 - **Указатели**: Адресация, разыменование, передача по ссылке
+- **Валидация**: Регулярные выражения, обработка пользовательского ввода
 
 ### 🛠️ Качество кода
 - **Комментарии**: Подробные объяснения каждого концепта
@@ -73,7 +74,8 @@ go run main.go
 │   ├── types.go           # Пользовательские типы и структуры
 │   ├── arrayAndSlices.go  # Массивы и слайсы
 │   ├── maps.go            # Работа с map
-│   └── ptrs.go            # Указатели в Go
+│   ├── ptrs.go            # Указатели в Go
+│   └── validations.go     # Валидация данных с регулярными выражениями
 ├── types/
 │   └── user.go            # Структура User с методами
 ├── go.mod                  # Модуль Go
@@ -128,6 +130,26 @@ func GetUserRank() (string, error) {
 }
 ```
 
+### Валидация данных с регулярными выражениями
+```go
+import "regexp"
+
+func emailValidation(email string) bool {
+    res, err := regexp.Compile(`.+@.+\..+`)
+    if err != nil {
+        panic(fmt.Sprintf("failed to compile regexp: %v", err))
+    }
+    return res.MatchString(email)
+}
+
+func MakeValidations() {
+    var email string
+    fmt.Print("Enter an email address: ")
+    fmt.Scanln(&email)
+    fmt.Printf("Email is valid: %t\n", emailValidation(email))
+}
+```
+
 ## 🤝 Контрибьютинг
 
 Хотите внести вклад? Отлично! 
@@ -148,4 +170,4 @@ MIT License — свободно используйте для обучения 
 Связаться: [GitHub](https://github.com/tehnickge) | [LinkedIn](https://www.linkedin.com/in/nikita-sobolev-261bb13b7/)
 ```
 
-You can customize this with your actual project details, features, and structure.
+

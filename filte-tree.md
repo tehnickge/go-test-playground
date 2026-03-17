@@ -11,11 +11,13 @@
 │   ├── maps.go
 │   ├── ptrs.go
 │   ├── strings.go
-│   └── types.go
+│   ├── types.go
+│   └── validations.go
 ├── types
 │   └── user.go
 ├── .gitignore
 ├── README.md
+├── filte-tree.md
 ├── go.mod
 └── main.go
 ```
