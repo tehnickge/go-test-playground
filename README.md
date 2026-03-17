@@ -108,7 +108,7 @@ go test ./... -run TestStringToInt
 ```bash
 go test ./... -run TestInterface
 ```
-```
+
 ## 💻 Примеры кода
 
 ### Интерактивное меню
