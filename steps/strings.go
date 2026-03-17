@@ -1,9 +1,16 @@
 package steps
 
 import (
-	"firstapp/lib"
 	"fmt"
 )
+
+func printRunes(s string) {
+	for _, r := range s {
+		fmt.Printf("%c", r)
+	}
+
+	fmt.Println()
+}
 
 func MakeStrings() {
 	fmt.Println("--------Strings-------")
@@ -16,7 +23,7 @@ func MakeStrings() {
 	}
 
 	// перебор строки рунам
-	lib.PrintRunes(str)
+	printRunes(str)
 
 	fmt.Printf("%v, %v, %c, %t, %t, %U \n", "first", "app", 'A', true, false, 0x1F525)
 
