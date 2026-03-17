@@ -23,9 +23,9 @@ func MakeFunctions() {
 
 	if err != nil {
 		fmt.Println((err))
-	} else {
-		fmt.Println(user)
 	}
+
+	fmt.Println(user)
 
 	fmt.Println("--------	-------")
 }
