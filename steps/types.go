@@ -46,6 +46,15 @@ func MakeTypes() {
 		copiedUser.Rank,
 	)
 
+	cloneUser := user.Clone()
+
+	fmt.Printf(
+		"Clone user: %s | struct addr: %p | Rank pointer: %p\n",
+		cloneUser.Name,
+		&cloneUser,
+		cloneUser.Rank,
+	)
+
 	fmt.Println("---------------")
 
 }

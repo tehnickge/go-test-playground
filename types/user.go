@@ -47,6 +47,19 @@ func (u User) CopyUser(otherUser User) User {
 	return u
 }
 
+func (u User) Clone() User {
+	clone := u
+
+	if u.Rank != nil {
+		newRank := *u.Rank
+		clone.Rank = &newRank
+	} else {
+		clone.Rank = nil
+	}
+
+	return clone
+}
+
 var Userino = struct {
 	Id   int
 	Name string
