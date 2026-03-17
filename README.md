@@ -195,6 +195,6 @@ MIT License — свободно используйте для обучения 
 ⭐ Если проект оказался полезным, поставьте звезду на GitHub!
 
 Связаться: [GitHub](https://github.com/tehnickge) | [LinkedIn](https://www.linkedin.com/in/nikita-sobolev-261bb13b7/)
-```
+
 
 
