@@ -15,7 +15,7 @@ func MakeValidations() {
 func emailValidation(email string) bool {
 	res, err := regexp.Compile(`.+@.+\..+`)
 	if err != nil {
-		panic(fmt.Sprintf("failed to compile regexp: %v", err))
+		return false
 	}
 	return res.MatchString(email)
 }
