@@ -38,11 +38,9 @@ type Dog struct {
 func (d *Dog) CanPlay() bool {
 	return true
 }
-
 func (d *Dog) GetName() string {
 	return d.name
 }
-
 func (d *Dog) SetName(name string) {
 	d.name = name
 }
@@ -51,8 +49,31 @@ func (d *Dog) SetName(name string) {
 func (d Dog) SetNameWithOutPtr(name string) {
 	d.name = name
 }
-
 func (d Dog) CloneWithNewName(name string) Player {
+	newDog := d
+	newDog.name = name
+	return &newDog
+}
+
+type Cat struct {
+	name string
+}
+
+func (d *Cat) CanPlay() bool {
+	return true
+}
+func (d *Cat) GetName() string {
+	return d.name
+}
+func (d *Cat) SetName(name string) {
+	d.name = name
+}
+
+// запись не будет происходить т.к. мы работаем с копией
+func (d Cat) SetNameWithOutPtr(name string) {
+	d.name = name
+}
+func (d Cat) CloneWithNewName(name string) Player {
 	newDog := d
 	newDog.name = name
 	return &newDog
@@ -77,6 +98,7 @@ func MakeInterfaces() {
 	execute(&anotherValue)
 
 	var dog Player = &Dog{name: "Buddy"}
+	var cat Player = &Cat{name: "PDiddy"}
 	fmt.Println(dog)
 	fmt.Println(dog.GetName())
 	fmt.Printf("dog can play? %t\n", dog.CanPlay())
@@ -87,5 +109,32 @@ func MakeInterfaces() {
 	var clone Player = dog.CloneWithNewName("tesla")
 	fmt.Println(clone.GetName())
 	fmt.Println(dog.GetName())
+	fmt.Println("check struct with downcast")
+	fmt.Printf("cat name: %v\ndog name: %v\n", cat.GetName(), dog.GetName())
+	chaneNameForDog(cat)
+	chaneNameForDog(dog)
+	fmt.Printf("cat name: %v\ndog name: %v\n", cat.GetName(), dog.GetName())
+	fmt.Println("check struct with downcast")
+	changeNameForAnotherPlaye(dog)
+	changeNameForAnotherPlaye(cat)
+	fmt.Printf("cat name: %v\ndog name: %v\n", cat.GetName(), dog.GetName())
+
+}
+
+func chaneNameForDog(p Player) {
+	if player, ok := p.(*Dog); ok {
+		player.SetName("testName")
+	} else {
+		fmt.Printf("this player not a dog %T\n", p)
+	}
+}
+
+func changeNameForAnotherPlaye(p Player) {
+	switch v := p.(type) {
+	case *Dog:
+		v.SetName("dog")
+	case *Cat:
+		v.SetName("cat")
+	}
 
 }

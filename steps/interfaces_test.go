@@ -28,3 +28,30 @@ func testInterfaceImplementation(t *testing.T) {
 	}
 
 }
+
+func TestChaneNameForDog(t *testing.T) {
+	table := []struct {
+		valid    bool
+		player   Player
+		expected string
+	}{
+		{true, &Dog{name: "dog"}, "testName"},
+		{false, &Cat{name: "cat"}, "cat"},
+	}
+
+	for _, testCase := range table {
+		chaneNameForDog(testCase.player)
+		if testCase.valid {
+			if testCase.player.GetName() != testCase.expected {
+				t.Errorf("Expected %s to not match, but got %s", testCase.player.GetName(), testCase.expected)
+			}
+
+		} else {
+			if testCase.player.GetName() != testCase.expected {
+				t.Errorf("Expected %s to match, but got %s", testCase.player.GetName(), testCase.expected)
+			}
+		}
+
+	}
+
+}
