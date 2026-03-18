@@ -8,6 +8,8 @@
 │   └── helpers_test.go
 ├── steps
 │   ├── arrayAndSlices.go
+│   ├── errors.go
+│   ├── errors_test.go
 │   ├── functions.go
 │   ├── interfaces.go
 │   ├── interfaces_test.go

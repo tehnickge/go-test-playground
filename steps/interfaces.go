@@ -111,8 +111,8 @@ func MakeInterfaces() {
 	fmt.Println(dog.GetName())
 	fmt.Println("check struct with downcast")
 	fmt.Printf("cat name: %v\ndog name: %v\n", cat.GetName(), dog.GetName())
-	chaneNameForDog(cat)
-	chaneNameForDog(dog)
+	changeNameForDog(cat)
+	changeNameForDog(dog)
 	fmt.Printf("cat name: %v\ndog name: %v\n", cat.GetName(), dog.GetName())
 	fmt.Println("check struct with downcast")
 	changeNameForAnotherPlaye(dog)
@@ -121,7 +121,7 @@ func MakeInterfaces() {
 
 }
 
-func chaneNameForDog(p Player) {
+func changeNameForDog(p Player) {
 	if player, ok := p.(*Dog); ok {
 		player.SetName("testName")
 	} else {

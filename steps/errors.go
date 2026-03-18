@@ -5,6 +5,22 @@ import (
 	"fmt"
 )
 
+type DividerError struct {
+	a, b int
+}
+
+func (d *DividerError) Error() string {
+	return fmt.Sprintf("from Divider can`t divide by zero: %d / %d ", d.a, d.b)
+}
+
+func Divade(a, b int) (float64, error) {
+	if b == 0 {
+		return 0, &DividerError{a, b}
+	} else {
+		return float64(a / b), nil
+	}
+}
+
 func MakeErrors() {
 
 	fres, ferr := divide(10, 20)
@@ -20,7 +36,13 @@ func MakeErrors() {
 	} else {
 		fmt.Println("result: ", sres)
 	}
-
+	fmt.Println("......")
+	res, err := Divade(20, 0)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("result: ", res)
+	}
 }
 
 func divide(lhs, rhs int) (float64, error) {

@@ -40,7 +40,7 @@ func TestChaneNameForDog(t *testing.T) {
 	}
 
 	for _, testCase := range table {
-		chaneNameForDog(testCase.player)
+		changeNameForDog(testCase.player)
 		if testCase.valid {
 			if testCase.player.GetName() != testCase.expected {
 				t.Errorf("Expected %s to not match, but got %s", testCase.player.GetName(), testCase.expected)
