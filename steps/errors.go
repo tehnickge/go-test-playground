@@ -17,7 +17,7 @@ func Divade(a, b int) (float64, error) {
 	if b == 0 {
 		return 0, &DividerError{a, b}
 	} else {
-		return float64(a / b), nil
+		return float64(a) / float64(b), nil
 	}
 }
 
@@ -51,6 +51,6 @@ func divide(lhs, rhs int) (float64, error) {
 		return 0, errors.New("can`t divide by zero")
 	} else {
 
-		return float64(rhs / lhs), nil
+		return float64(lhs) / float64(rhs), nil
 	}
 }
