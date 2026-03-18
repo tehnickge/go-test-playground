@@ -21,6 +21,7 @@ func main() {
 		fmt.Println("6. Pointers")
 		fmt.Println("7. Validations")
 		fmt.Println("8. Interfaces")
+		fmt.Println("9. Errors")
 		fmt.Println("0. Exit")
 		fmt.Print("Enter the number of the step you want to see: ")
 
@@ -49,6 +50,8 @@ func main() {
 			steps.MakeValidations()
 		case 8:
 			steps.MakeInterfaces()
+		case 9:
+			steps.MakeErrors()
 		case 0:
 			fmt.Println("Exiting...")
 			return
