@@ -6,15 +6,18 @@
 ├── lib
 │   ├── helpers.go
 │   └── helpers_test.go
+├── public
 ├── steps
 │   ├── arrayAndSlices.go
 │   ├── errors.go
 │   ├── errors_test.go
 │   ├── functions.go
+│   ├── generics.go
 │   ├── interfaces.go
 │   ├── interfaces_test.go
 │   ├── maps.go
 │   ├── ptrs.go
+│   ├── readAndWrite.go
 │   ├── strings.go
 │   ├── types.go
 │   ├── validations.go
@@ -25,5 +28,6 @@
 ├── README.md
 ├── filte-tree.md
 ├── go.mod
+├── go.sum
 └── main.go
 ```
