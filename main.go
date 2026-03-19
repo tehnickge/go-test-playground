@@ -23,6 +23,7 @@ func main() {
 		fmt.Println("8. Interfaces")
 		fmt.Println("9. Errors")
 		fmt.Println("10. ReadAndWriteBuffer")
+		fmt.Println("11. Generics")
 		fmt.Println("0. Exit")
 		fmt.Print("Enter the number of the step you want to see: ")
 
@@ -55,6 +56,8 @@ func main() {
 			steps.MakeErrors()
 		case 10:
 			steps.MakeReadAndWrite()
+		case 11:
+			steps.MakeGanerics()
 		case 0:
 			fmt.Println("Exiting...")
 			return
