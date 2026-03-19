@@ -3,6 +3,7 @@ package steps
 import (
 	"cmp"
 	"fmt"
+	"slices"
 )
 
 type TestItem struct {
@@ -31,6 +32,12 @@ func MakeGanerics() {
 	fmt.Println(sumNumbers(arr))
 	arr1 := []uint32{uint32(1), uint32(23), uint32(400)}
 	fmt.Println(sumNumbers(arr1))
+
+	arr2 := MyArray[int32]{inner: []int32{132422, 2321, 3321, -32, 23, 1, 0}}
+	fmt.Println(arr2)
+	fmt.Println(arr2.Max())
+	arr2.Sort()
+	fmt.Println(arr2)
 }
 
 func IsEqual[T comparable](a, b T) bool {
@@ -47,8 +54,28 @@ func sumNumbers[T Number32](arr []T) T {
 	return sum
 }
 
-// func semple[T constraint, U constraintA | constraintB](a T, b U) T {
+func (m *MyArray[T]) MaxBasic() T {
+	if len(m.inner) == 0 {
+		var zero T
+		return zero
+	}
+	max := m.inner[0]
+	for _, v := range m.inner {
+		if v > max {
+			max = v
+		}
+	}
+	return max
+}
 
-// 	return a
+func (m *MyArray[T]) Max() T {
+	if len(m.inner) == 0 {
+		var zero T
+		return zero
+	}
+	return slices.Max(m.inner)
+}
 
-// }
+func (m *MyArray[T]) Sort() {
+	slices.Sort(m.inner)
+}
