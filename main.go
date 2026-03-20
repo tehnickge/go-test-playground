@@ -24,8 +24,9 @@ func main() {
 		fmt.Println("9. Errors")
 		fmt.Println("10. ReadAndWriteBuffer")
 		fmt.Println("11. Generics")
+		fmt.Println("12. Gorutine")
 		fmt.Println("0. Exit")
-		fmt.Print("Enter the number of the step you want to see: ")
+		fmt.Println("Enter the number of the step you want to see: ")
 
 		scanner.Scan()
 		input := strings.TrimSpace(scanner.Text())
@@ -58,6 +59,8 @@ func main() {
 			steps.MakeReadAndWrite()
 		case 11:
 			steps.MakeGanerics()
+		case 12:
+			steps.MakeGoRutine()
 		case 0:
 			fmt.Println("Exiting...")
 			return

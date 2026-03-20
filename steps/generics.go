@@ -16,6 +16,7 @@ type TestItem struct {
 type Number32 interface {
 	~int32 | ~uint32
 }
+
 type Speed int32
 
 type MyArray[T cmp.Ordered] struct {
@@ -41,7 +42,6 @@ func MakeGanerics() {
 }
 
 func IsEqual[T comparable](a, b T) bool {
-
 	return a == b
 }
 
