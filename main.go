@@ -25,6 +25,7 @@ func main() {
 		fmt.Println("10. ReadAndWriteBuffer")
 		fmt.Println("11. Generics")
 		fmt.Println("12. Gorutine")
+		fmt.Println("13. Mutex")
 		fmt.Println("0. Exit")
 		fmt.Println("Enter the number of the step you want to see: ")
 
@@ -61,6 +62,8 @@ func main() {
 			steps.MakeGanerics()
 		case 12:
 			steps.MakeGoRutine()
+		case 13:
+			steps.MakeMutex()
 		case 0:
 			fmt.Println("Exiting...")
 			return
