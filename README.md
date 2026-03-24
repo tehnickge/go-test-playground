@@ -63,27 +63,46 @@ go run main.go
 ## 📁 Структура проекта
 
 ```
-├── main.go                 # Главный файл с интерактивным меню
-├── constants/
-│   └── index.go           # Константы, массивы и map
-├── lib/
-│   ├── helpers.go         # Вспомогательные функции
-│   └── helpers_test.go    # Unit-тесты для вспомогательных функций
-├── steps/
-│   ├── strings.go         # Демонстрация работы со строками
-│   ├── functions.go       # Функции и множественный возврат
-│   ├── interfaces.go      # Демонстрация интерфейсов и полиморфизма
-│   ├── interfaces_test.go # Unit-тесты для интерфейсов
-│   ├── arrayAndSlices.go  # Массивы и слайсы
-│   ├── maps.go            # Работа с map
-│   ├── ptrs.go            # Указатели в Go
-│   ├── types.go           # Пользовательские типы и структуры
-│   ├── validations.go     # Валидация данных с регулярными выражениями
-│   └── validations_test.go # Тесты для валидации
-├── types/
-│   └── user.go            # Структура User с методами
-├── go.mod                  # Модуль Go
-└── README.md              # Этот файл
+├── constants
+│   └── index.go
+├── internal
+│   ├── config
+│   │   ├── config.go
+│   │   └── db.go
+│   ├── models
+│   │   └── user.go
+│   └── steps
+│       ├── arrayAndSlices.go
+│       ├── context.go
+│       ├── db.go
+│       ├── errors.go
+│       ├── errors_test.go
+│       ├── functions.go
+│       ├── generics.go
+│       ├── gorutine.go
+│       ├── interfaces.go
+│       ├── interfaces_test.go
+│       ├── maps.go
+│       ├── mutex.go
+│       ├── ptrs.go
+│       ├── readAndWrite.go
+│       ├── strings.go
+│       ├── types.go
+│       ├── validations.go
+│       └── validations_test.go
+├── lib
+│   ├── helpers.go
+│   └── helpers_test.go
+├── public
+├── types
+│   └── user.go
+├── .gitignore
+├── README.md
+├── docker-compose.yaml
+├── filte-tree.md
+├── go.mod
+├── go.sum
+└── main.go
 ```
 
 ## 🧪 Тестирование
