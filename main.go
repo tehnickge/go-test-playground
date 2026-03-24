@@ -2,7 +2,9 @@ package main
 
 import (
 	"bufio"
-	"firstapp/steps"
+	"firstapp/internal/config"
+	"firstapp/internal/models"
+	"firstapp/internal/steps"
 	"fmt"
 	"os"
 	"strconv"
@@ -10,6 +12,23 @@ import (
 )
 
 func main() {
+	if err := config.Load(); err != nil {
+		panic(err)
+	}
+
+	config.InitDB()
+
+	fmt.Println("Выполняется миграция таблиц...")
+
+	err := config.DB.AutoMigrate(&models.User{})
+	if err != nil {
+		fmt.Printf("❌ Ошибка миграции: %v\n", err)
+		return
+	}
+
+	fmt.Println("✅ Миграция завершена успешно!")
+	fmt.Println("🚀 Приложение запущено!")
+
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
 		fmt.Println("Selected steps:")
@@ -26,6 +45,7 @@ func main() {
 		fmt.Println("11. Generics")
 		fmt.Println("12. Gorutine")
 		fmt.Println("13. Mutex")
+		fmt.Println("14. Context")
 		fmt.Println("0. Exit")
 		fmt.Println("Enter the number of the step you want to see: ")
 
@@ -64,6 +84,8 @@ func main() {
 			steps.MakeGoRutine()
 		case 13:
 			steps.MakeMutex()
+		case 14:
+			steps.MakeContext()
 		case 0:
 			fmt.Println("Exiting...")
 			return

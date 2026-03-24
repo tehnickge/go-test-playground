@@ -10,7 +10,7 @@ import (
 
 // MakeContext — демонстрация основных паттернов работы с context.Context
 func MakeContext() {
-	fmt.Println("=== Демонстрация context в Go ===\n")
+	fmt.Printf("=== Демонстрация context в Go ===\n")
 
 	demoBackgroundAndTODO()
 
@@ -39,6 +39,7 @@ func demoBackgroundAndTODO() {
 	fmt.Printf("  Background: %v  (всегда один и тот же объект)\n", bg)
 	fmt.Printf("  TODO:       %v  (заглушка, семантически «ещё не определил»)\n", todo)
 	fmt.Println("  Оба никогда не отменяются автоматически")
+
 }
 
 // ────────────────────────────────────────────────
@@ -48,7 +49,7 @@ func demoWithCancel() {
 	fmt.Println("\n2. context.WithCancel — ручная отмена")
 
 	ctx, cancel := context.WithCancel(context.Background())
-	defer cancel() // почти всегда defer!
+	defer cancel()
 
 	// имитируем внешнее событие отмены
 	go func() {
