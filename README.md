@@ -1,219 +1,119 @@
+# Go Test Playground
 
+Практический Go-проект, который показывает инженерный уровень в формате "код, который можно запустить, проверить тестами и масштабировать".  
+Это не набор разрозненных примеров, а структурированная песочница: от базовых концепций языка до конкурентности, generics, контекстов, работы с БД и unit-тестов.
 
-# Go Test Playground 🚀
+## Почему этот проект сильный
 
-Добро пожаловать в **Go Test Playground** — интерактивную песочницу для экспериментов с языком Go! Этот проект создан для демонстрации лучших практик программирования на Go, глубокого понимания фундаментальных концепций и умения создавать чистый, эффективный и масштабируемый код.
+- Покрывает ключевые зоны Go-разработки: `types`, `interfaces`, `errors`, `goroutines`, `mutex`, `context`, `generics`.
+- Показывает умение строить модульную структуру (`internal`, `lib`, `types`, `constants`) и отделять доменную модель от учебных сценариев.
+- Включает рабочую интеграцию с PostgreSQL через `gorm` и конфигурацию через `.env`.
+- Поддерживает проверяемость через unit-тесты в нескольких модулях.
+- Подходит как "живое" портфолио для собеседований на Go Backend / Go Developer.
 
-## 🌟 О проекте
+## Стек
 
-**Go Test Playground** — это не просто учебный проект, а полноценная демонстрация навыков разработчика в экосистеме Go. Здесь вы найдете интерактивное приложение, которое шаг за шагом раскрывает ключевые аспекты языка: от базовых типов данных до сложных структур и указателей. Проект демонстрирует:
+- `Go 1.26.1`
+- `gorm` + `postgres driver`
+- `godotenv`
+- `x/sync/errgroup`
+- Unit tests (`go test`)
 
-- **Чистую архитектуру**: Модульная структура с разделением на пакеты (constants, lib, steps, types)
-- **Лучшие практики**: Использование интерфейсов, обработка ошибок, работа с JSON
-- **Интерактивность**: Консольное приложение с меню для выбора демонстраций
-- **Образовательный подход**: Каждый шаг сопровождается подробными комментариями и примерами
+## Быстрый старт
 
-Проект идеально подходит для:
-- Изучения основ Go
-- Демонстрации навыков на собеседованиях
-- Экспериментов с новыми идеями
-- Понимания внутренней работы Go
+### 1) Клонирование
 
-## 🔥 Особенности
-
-### 🏗️ Архитектура и дизайн
-- **Модульная структура**: Код разделен на логические пакеты для лучшей читаемости
-- **Интерактивное меню**: Удобный интерфейс для навигации по демонстрациям
-- **Расширяемость**: Легко добавить новые шаги и функции
-
-### 💡 Технические демонстрации
-- **Строки и руны**: Работа с Unicode, форматирование вывода
-- **Функции**: Множественный возврат, обработка ошибок
-- **Пользовательские типы**: Структуры, методы, интерфейсы
-- **Массивы и слайсы**: Создание, модификация, append операции
-- **Map**: Поиск, удаление, итерация
-- **Указатели**: Адресация, разыменование, передача по ссылке
-- **Валидация**: Регулярные выражения, обработка пользовательского ввода
-
-### 🛠️ Качество кода
-- **Комментарии**: Подробные объяснения каждого концепта
-- **Обработка ошибок**: Правильное использование error типов
-- **JSON сериализация**: Работа с encoding/json
-- **Константы и iota**: Эффективное использование встроенных инструментов Go
-
-## 🚀 Быстрый старт
-
-### Требования
-- Go 1.26.1 или выше
-- Терминал для запуска
-
-### Установка
 ```bash
 git clone https://github.com/tehnickge/go-test-playground.git
 cd go-test-playground
 ```
 
-### Запуск
+### 2) Запуск приложения
+
 ```bash
 go run main.go
 ```
 
-Следуйте инструкциям в консоли — выбирайте номера шагов для изучения!
+В консольном меню выбираются шаги-демонстрации (каждый шаг соответствует отдельному модулю в `internal/steps`).
 
-## 📁 Структура проекта
-
-```
-├── constants
-│   └── index.go
-├── internal
-│   ├── config
-│   │   ├── config.go
-│   │   └── db.go
-│   ├── models
-│   │   └── user.go
-│   └── steps
-│       ├── arrayAndSlices.go
-│       ├── context.go
-│       ├── db.go
-│       ├── errors.go
-│       ├── errors_test.go
-│       ├── functions.go
-│       ├── generics.go
-│       ├── gorutine.go
-│       ├── interfaces.go
-│       ├── interfaces_test.go
-│       ├── maps.go
-│       ├── mutex.go
-│       ├── ptrs.go
-│       ├── readAndWrite.go
-│       ├── strings.go
-│       ├── types.go
-│       ├── validations.go
-│       └── validations_test.go
-├── lib
-│   ├── helpers.go
-│   └── helpers_test.go
-├── public
-├── types
-│   └── user.go
-├── .gitignore
-├── README.md
-├── docker-compose.yaml
-├── filte-tree.md
-├── go.mod
-├── go.sum
-└── main.go
-```
-
-## 🧪 Тестирование
-
-В проекте есть набор unit-тестов, демонстрирующих:
-- **табличные тесты** (table-driven tests)
-- **проверку бизнес-логики** и валидации
-- **тестирование интерфейсов** и реализаций
-
-Запустить все тесты:
+### 3) Запуск тестов
 
 ```bash
 go test ./...
 ```
 
-Запустить конкретные тесты (по имени):
+## Что демонстрирует проект
 
-```bash
-go test ./... -run TestStringToInt
-```
+- **Работа с типами и структурами:** методы, копирование, клонирование, указатели, сериализация в JSON.
+- **Контракты и полиморфизм:** интерфейсы, pointer/value receiver, изменение состояния через интерфейс.
+- **Надежная обработка ошибок:** пользовательские error-типы, обертывание ошибок, тесты на edge cases.
+- **Конкурентность:** goroutines, `sync.WaitGroup`, mutex, безопасный доступ к shared state.
+- **Контекст выполнения:** cancel/timeout/deadline/value, coordinated shutdown через context.
+- **Generics:** обобщенные функции и контейнеры, ограничения типов, сортировка и max по ordered-типам.
+- **Практика ввода/вывода:** stdin/scan/bufio сценарии для CLI.
+- **DB flow:** базовые CRUD-операции пользователя через GORM.
 
-```bash
-go test ./... -run TestInterface
-```
+## Полная карта проекта с описаниями файлов
 
-## 💻 Примеры кода
+> Ниже каждый файл из дерева проекта с назначением.
 
-### Интерактивное меню
-```go
-func main() {
-    scanner := bufio.NewScanner(os.Stdin)
-    for {
-        // Вывод меню
-        fmt.Println("Selected steps:")
-        // ... варианты выбора
-        
-        scanner.Scan()
-        input := strings.TrimSpace(scanner.Text())
-        stepNumber, err := strconv.Atoi(input)
-        // Обработка выбора
-    }
-}
-```
+- `main.go` — точка входа CLI; интерактивное меню и маршрутизация по шагам.
+- `go.mod` — модуль `firstapp`, версия Go и зависимости проекта.
+- `go.sum` — контрольные суммы зависимостей.
+- `docker-compose.yaml` — подготовка локальной инфраструктуры для БД.
+- `.gitignore` — исключения для Git.
+- `README.md` — документация и витрина проекта.
+- `filte-tree.md` — зафиксированное дерево файлов проекта.
 
-### Работа с пользовательскими типами
-```go
-type User struct {
-    Id    int
-    Name  string
-    Email string
-    Rank  *string
-}
+- `constants/index.go` — константы и демонстрационные коллекции (`iota`, map, mixed array).
 
-func (u *User) Greet() string {
-    return fmt.Sprintf("Hello, my name is %s!", u.Name)
-}
+- `internal/config/config.go` — загрузка конфигурации из окружения, структура `AppConfig/DBConfig`.
+- `internal/config/db.go` — инициализация глобального подключения `gorm.DB`.
 
-func (u *User) IsAdmin() bool {
-    return u.Rank != nil && *u.Rank == "admin"
-}
-```
+- `internal/models/user.go` — GORM-модель пользователя и имя таблицы.
 
-### Обработка ошибок
-```go
-func GetUserRank() (string, error) {
-    randomNumber := rand.Intn(2)
-    if randomNumber%2 == 0 {
-        return "admin", nil
-    }
-    return "", errors.New("bad result")
-}
-```
+- `internal/steps/arrayAndSlices.go` — демонстрации массивов и слайсов.
+- `internal/steps/context.go` — практические сценарии `context`: cancel, timeout, deadline, value, errgroup.
+- `internal/steps/db.go` — учебный CRUD по пользователям через слой `config/models`.
+- `internal/steps/errors.go` — пользовательская ошибка деления и сценарии обработки.
+- `internal/steps/errors_test.go` — тесты корректности обработки ошибок деления.
+- `internal/steps/functions.go` — функции, multiple return values, генерация ранга с ошибкой.
+- `internal/steps/generics.go` — generics: ограничения, универсальные функции, generic-структура массива.
+- `internal/steps/gorutine.go` — конкурентные и последовательные вычисления для сравнения подходов.
+- `internal/steps/interfaces.go` — интерфейсы `Item/Player`, реализация на `Dog/Cat`, pointer semantics.
+- `internal/steps/interfaces_test.go` — тесты поведения для интерфейсных реализаций.
+- `internal/steps/maps.go` — базовые операции с map (поиск, удаление, итерация).
+- `internal/steps/mutex.go` — синхронизация shared state через `sync.Mutex`, включая антипример.
+- `internal/steps/ptrs.go` — основы работы с указателями и изменением значения по ссылке.
+- `internal/steps/readAndWrite.go` — ввод/вывод через `fmt`, `bufio`, scanner.
+- `internal/steps/strings.go` — работа со строками и рунами (Unicode-safe обход).
+- `internal/steps/types.go` — демонстрация пользовательского типа `User`, JSON и методы.
+- `internal/steps/validations.go` — email-валидация через regexp.
+- `internal/steps/validations_test.go` — тесты email-валидации.
 
-### Валидация данных с регулярными выражениями
-```go
-import "regexp"
+- `lib/helpers.go` — утилиты: pointer-helper для string и безопасный `string -> int`.
+- `lib/helpers_test.go` — unit-тесты helper-функций.
 
-func emailValidation(email string) bool {
-    res, err := regexp.Compile(`.+@.+\..+`)
-    if err != nil {
-        panic(fmt.Sprintf("failed to compile regexp: %v", err))
-    }
-    return res.MatchString(email)
-}
+- `types/user.go` — прикладной тип `User` с методами (`Greet`, `IsAdmin`, `Clone`, изменение имени).
 
-func MakeValidations() {
-    var email string
-    fmt.Print("Enter an email address: ")
-    fmt.Scanln(&email)
-    fmt.Printf("Email is valid: %t\n", emailValidation(email))
-}
-```
+- `public/` — директория под публичные/статические ресурсы (точка расширения проекта).
 
-## 🤝 Контрибьютинг
+## Профессиональная ценность (для CV и интервью)
 
-Хотите внести вклад? Отлично! 
-- Fork репозиторий
-- Создайте feature branch
-- Добавьте свои демонстрации или улучшения
-- Напишите тесты
-- Отправьте Pull Request
+- Демонстрирует не только "синтаксис Go", а системное мышление: архитектура, чистая декомпозиция, тестируемость.
+- Показывает понимание production-паттернов: конфигурация, контекст, конкурентность, работа с БД.
+- Легко масштабируется: можно добавлять новые `steps` как изолированные модули без ломки существующей структуры.
 
-## 📄 Лицензия
+## Контрибьютинг
 
-MIT License — свободно используйте для обучения и коммерческих проектов.
+Pull requests приветствуются. Лучшая стратегия:
 
----
+1. Добавить новый шаг в `internal/steps`.
+2. Подключить его в `main.go`.
+3. Добавить unit-тесты.
+4. Обновить `README.md`.
 
-⭐ Если проект оказался полезным, поставьте звезду на GitHub!
+## Контакты
 
-Связаться: [GitHub](https://github.com/tehnickge) | [LinkedIn](https://www.linkedin.com/in/nikita-sobolev-261bb13b7/)
-
-
-
+- GitHub: [tehnickge](https://github.com/tehnickge)
+- LinkedIn: [Nikita Sobolev](https://www.linkedin.com/in/nikita-sobolev-261bb13b7/)
