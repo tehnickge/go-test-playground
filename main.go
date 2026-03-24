@@ -46,6 +46,7 @@ func main() {
 		fmt.Println("12. Gorutine")
 		fmt.Println("13. Mutex")
 		fmt.Println("14. Context")
+		fmt.Println("15. DB & ORM")
 		fmt.Println("0. Exit")
 		fmt.Println("Enter the number of the step you want to see: ")
 
@@ -86,6 +87,8 @@ func main() {
 			steps.MakeMutex()
 		case 14:
 			steps.MakeContext()
+		case 15:
+			steps.MakeDB()
 		case 0:
 			fmt.Println("Exiting...")
 			return
