@@ -1,7 +1,7 @@
 package steps
 
 import (
-	"firstapp/constants"
+	"firstapp/internal/constants"
 	"fmt"
 )
 

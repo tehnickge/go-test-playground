@@ -1,8 +1,8 @@
 package steps
 
 import (
+	"firstapp/internal/types"
 	"firstapp/lib"
-	"firstapp/types"
 	"fmt"
 )
 
